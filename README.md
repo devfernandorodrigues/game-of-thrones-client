@@ -74,22 +74,29 @@ client.character_by_slug('jon')
 ## Member
 
 `name`: `str`
+
 `slug`: `str`
 
 ## House
 
 `name`: `Optional[str] = None `
+
 `slug`: `Optional[str] = None `
+
 `members`: `Optional[List[Member]] = []`
 
 ## Character
 
 `name`: `str`
+
 `slug`: `str`
+
 `house`: `Optional[House] = None`
+
 `quotes`: `Optional[List[str]] = []`
 
 ## Quote
 
 `sentence`: `str`
+
 `character`: `Character`
