@@ -15,18 +15,16 @@ class GameOfThronesClient:
         resp = requests.get(f"{self.ENDPOINT}/random/{quantity}")
         return [Quote(**data) for data in resp.json()]
 
-    def quote_from_character(self, character: Character) -> Quote:
-        resp = requests.get(f"{self.ENDPOINT}/author/{character.slug}")
+    def quote_from_character_slug(self, slug) -> Quote:
+        resp = requests.get(f"{self.ENDPOINT}/author/{slug}")
         return Quote(**resp.json())
 
-    def quote_list_from_character(
+    def quote_list_from_character_slug(
         self,
-        character: Character,
+        slug,
         quantity=5,
     ) -> List[Quote]:
-        resp = requests.get(
-            f"{self.ENDPOINT}/author/{character.slug}/{quantity}"
-        )
+        resp = requests.get(f"{self.ENDPOINT}/author/{slug}/{quantity}")
         return [Quote(**data) for data in resp.json()]
 
     def houses(self) -> List[House]:
