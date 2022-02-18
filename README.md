@@ -73,30 +73,36 @@ client.character_by_slug('jon')
 
 ## Member
 
-`name`: `str`
-
-`slug`: `str`
+```Python3
+class Member(BaseModel):
+    name: str
+    slug: str
+```
 
 ## House
 
-`name`: `Optional[str] = None `
-
-`slug`: `Optional[str] = None `
-
-`members`: `Optional[List[Member]] = []`
+```Python3
+class House(BaseModel):
+    name: Optional[str] = None
+    slug: Optional[str] = None
+    members: Optional[List[Member]] = []
+```
 
 ## Character
 
-`name`: `str`
+```Python3
+class Character(BaseModel):
+    name: str
+    slug: str
+    house: Optional[House] = None
+    quotes: Optional[List[str]] = []
 
-`slug`: `str`
-
-`house`: `Optional[House] = None`
-
-`quotes`: `Optional[List[str]] = []`
+```
 
 ## Quote
 
-`sentence`: `str`
-
-`character`: `Character`
+```Python3
+class Quote(BaseModel):
+    sentence: str
+    character: Character
+```
